@@ -9,11 +9,14 @@ import sys
 
 def main():
     # Check if the script was called with 'build' argument
-    if len(sys.argv) > 1 and sys.argv[1] == "build":
-        # Replace 'script.py' with the name of the script you want to execute
-        command = "python3 projects/scripts/build-release.py"
+    if len(sys.argv) > 1:
 
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+        # Replace 'script.py' with the name of the script you want to execute
+        commands = {"firmware": "python3 projects/scripts/firmware-rel.py"}
+
+        process = subprocess.Popen(
+            commands.get(sys.argv[1]), stdout=subprocess.PIPE, shell=True
+        )
         out, err = process.communicate()
 
         # Decode byte string to normal string and print
