@@ -1,0 +1,27 @@
+[package]
+name = "semasher"
+version = "0.1.0"
+authors = ["lmpriestley <lmpriestley@outlook.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "semasher"
+test = false
+bench = false
+path = "src/firmware.rs"
+
+
+[dependencies]
+panic-halt = "0.2.0"
+nb = "1.1.0"
+atmega-hal = { package = "atmega-hal", git = "https://github.com/Rahix/avr-hal.git", features = [
+    "rt",
+    "atmega48p",
+] }
+
+# The latest releases of `proc-macro2` do not support the rust toolchain that
+# we use.  Thus, we must fix this dependency to an older version where our
+# toolchain is still supported.  See https://github.com/Rahix/avr-hal/issues/537
+[build-dependencies.proc-macro2]
+version = "=1.0.81"

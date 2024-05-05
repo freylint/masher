@@ -1,0 +1,41 @@
+# Cache files
+**/.cache/
+**/__pycache__/
+
+# KiCAD Artifacts
+*.zip
+**/*-backups/
+**/fp-info-cache
+**/\#*\#
+**/~*
+*.gbr
+*.gbrjob
+_auto*
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups
+*.kicad_prl
+*.sch-bak
+*~
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+*.net
+*.dsn
+*.ses
+*.xml
+*.csv
+
+# IDE Configurations
+**/.idea/
+**/.vscode/
+**/.vs/
+
+# Build Artifacts
+build/
+target/
