@@ -15,9 +15,9 @@ path = "src/firmware.rs"
 [dependencies]
 panic-halt = "0.2.0"
 nb = "1.1.0"
-atmega-hal = { package = "atmega-hal", git = "https://github.com/Rahix/avr-hal.git", features = [
+attiny-hal = { package = "attiny-hal", git = "https://github.com/Rahix/avr-hal.git", features = [
     "rt",
-    "atmega48p",
+    "attiny84",
 ] }
 
 # The latest releases of `proc-macro2` do not support the rust toolchain that

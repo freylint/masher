@@ -1,6 +1,6 @@
-use core::marker::{PhantomData, PhantomPinned};
+use core::marker::PhantomData;
 
-use atmega_hal::{spi::SerialClockRate, usart::Baudrate, Peripherals, Pins, Usart};
+use attiny_hal::Peripherals;
 
 /// Initialization state
 pub struct Init;
@@ -10,7 +10,7 @@ pub struct Config;
 
 pub struct Pipeline<S> {
     state: PhantomData<S>,
-    dp: atmega_hal::Peripherals,
+    dp: attiny_hal::Peripherals,
     serial: Option<()>,
 }
 
@@ -29,7 +29,7 @@ impl Pipeline<Config> {
         Pipeline {
             state: PhantomData,
             dp: self.dp,
-            serial: Usart::new(self.dp.USART0, pin!(), pin!(), Baudrate::B9600).ok(),
+            serial: None,
         }
     }
 }
