@@ -16,7 +16,7 @@
 #![warn(unused_must_use)]
 #![warn(unused_unsafe)]
 
-use atmega_hal::{pins, usart::UsartWriter, Peripherals};
+use attiny_hal::{pins, Peripherals};
 use core::marker::PhantomData;
 use panic_halt as _;
 
@@ -36,7 +36,7 @@ enum ModeSelect {
     NOKEY,
 }
 
-#[atmega_hal::entry]
+#[attiny_hal::entry]
 fn start() -> ! {
     let pipeline = pipeline::Pipeline::new(Peripherals::take().unwrap());
 

@@ -3,7 +3,7 @@
 version = 3
 
 [[package]]
-name = "atmega-hal"
+name = "attiny-hal"
 version = "0.1.0"
 source = "git+https://github.com/Rahix/avr-hal.git#4182fe791e14954e809f1b6e37b743d2f9b3b52e"
 dependencies = [
@@ -163,7 +163,7 @@ checksum = "80af6f9131f277a45a3fba6ce8e2258037bb0477a67e610d3c1fe046ab31de47"
 name = "semasher"
 version = "0.1.0"
 dependencies = [
- "atmega-hal",
+ "attiny-hal",
  "nb 1.1.0",
  "panic-halt",
  "proc-macro2",

@@ -1,5 +1,5 @@
 [build]
-target = ".cargo/avr-attiny44.json"
+target = ".cargo/avr-attiny84.json"
 
 [target.'cfg(target_arch = "avr")']
 runner = "ravedude nano -cb 57600"
