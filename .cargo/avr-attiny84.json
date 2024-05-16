@@ -16,7 +16,7 @@
   "no-default-libraries": false,
   "pre-link-args": {
     "gcc": [
-      "-mmcu=attiny44"
+      "-mmcu=attiny84"
     ]
   },
   "relocation-model": "static",

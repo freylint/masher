@@ -16,29 +16,19 @@
 #![warn(unused_must_use)]
 #![warn(unused_unsafe)]
 
-use attiny_hal::{pins, Peripherals};
-use core::marker::PhantomData;
+use attiny_hal::{clock::MHz1, delay::Delay, prelude::*};
 use panic_halt as _;
-
-mod pipeline;
-
-/// Operation Mode Selector
-///
-/// This models external device state from
-/// the input switch.
-enum ModeSelect {
-    F1,
-    F2,
-    F10,
-    F12,
-    /// Mashes ESC and Space
-    BLNC,
-    NOKEY,
-}
 
 #[attiny_hal::entry]
 fn start() -> ! {
-    let pipeline = pipeline::Pipeline::new(Peripherals::take().unwrap());
+    let dp = attiny_hal::Peripherals::take().expect("Unable to get peripherals.");
+    let pins = attiny_hal::pins!(dp);
 
-    loop {}
+    let mut led = pins.pb0.into_output();
+
+    loop {
+        led.toggle();
+        Delay::<MHz1>::new().delay_ms(200u16)
+    }
 }
+
