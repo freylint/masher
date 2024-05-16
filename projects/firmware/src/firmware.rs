@@ -5,7 +5,7 @@
 //! asset refurbishment.
 //!
 
-#![no_std]
+#![cfg_attr(not(test), no_std)]
 #![no_main]
 #![warn(clippy::all)]
 #![warn(rust_2018_idioms)]
@@ -16,7 +16,12 @@
 #![warn(unused_must_use)]
 #![warn(unused_unsafe)]
 
-use attiny_hal::{clock::MHz1, delay::Delay, prelude::*};
+use attiny_hal::{
+    clock::MHz20,
+    delay::Delay,
+    port::{mode::Output, Pin, PinOps},
+    prelude::*,
+};
 use panic_halt as _;
 
 #[attiny_hal::entry]
@@ -27,8 +32,14 @@ fn start() -> ! {
     let mut led = pins.pb0.into_output();
 
     loop {
-        led.toggle();
-        Delay::<MHz1>::new().delay_ms(200u16)
+        blink(&mut led);
     }
 }
 
+fn blink<P>(led: &mut Pin<Output, P>)
+where
+    P: PinOps,
+{
+    led.toggle();
+    Delay::<MHz20>::new().delay_ms(200u16);
+}
