@@ -12,7 +12,10 @@ def main():
     if len(sys.argv) > 1:
 
         # Replace 'script.py' with the name of the script you want to execute
-        commands = {"firmware": "python3 projects/scripts/firmware-rel.py"}
+        commands = {
+            "firmware": "python3 projects/scripts/firmware-rel.py",
+            "flash": "python3 projects/scripts/flash.py",
+            }
 
         process = subprocess.Popen(
             commands.get(sys.argv[1]), stdout=subprocess.PIPE, shell=True
