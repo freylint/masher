@@ -1,7 +1,7 @@
 import subprocess
 
 CMD = """
-cargo b -r
+make -C projects/firmware
 """
 
 process = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True)
