@@ -13,9 +13,9 @@ UISP = uisp -dprog=avr910 -dserial=$(SERIAL) -dpart=auto
 # to a Keyspan USB to serial converter to a Mac running Mac OS X.
 # Choose your favorite programmer and interface.
 
-COMPILE = avr-gcc -Wall -Os -Iusbdrv -I. -mmcu=atmega8 -DF_CPU=12000000L #-DDEBUG_LEVEL=1
+COMPILE = avr-gcc -Wall -Os -Isrc/usbdrv -Isrc -mmcu=atmega8 -DF_CPU=12000000L #-DDEBUG_LEVEL=1
 
-OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o main.o
+OBJECTS = src/usbdrv/usbdrv.o src/usbdrv/usbdrvasm.o src/usbdrv/oddebug.o src/main.o
 
 
 # symbolic targets:

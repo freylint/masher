@@ -39,4 +39,6 @@ fp-info-cache
 # Build Artifacts
 build/
 target/
-main.{o|hex}
+*.o
+*.bin
+*.hex
