@@ -15,7 +15,7 @@ UISP = uisp -dprog=avr910 -dserial=$(SERIAL) -dpart=auto
 
 COMPILE = avr-gcc -Wall -Os -Isrc/usbdrv -Isrc -mmcu=atmega8 -DF_CPU=12000000L #-DDEBUG_LEVEL=1
 
-OBJECTS = src/usbdrv/usbdrv.o src/usbdrv/usbdrvasm.o src/usbdrv/oddebug.o src/main.o
+OBJECTS = src/usbdrv/usbdrv.o src/usbdrv/usbdrvasm.o src/usbdrv/oddebug.o src/util/util.o src/main.o
 
 
 # symbolic targets:
